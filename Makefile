@@ -1,7 +1,9 @@
-main: main.o
+main: main.o DtFecha.o
 	g++ main.o -o sistema
 
 main.o: main.cpp
+
+DtFecha.o: DtFecha.cpp
 
 clean:
 	rm -rf *.o sistema
