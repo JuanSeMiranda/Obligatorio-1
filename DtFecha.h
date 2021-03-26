@@ -1,6 +1,9 @@
 #ifndef DTFECHA
 #define DTFECHA
-#include<string.h>
+
+#include <iostream>
+
+using namespace std;    
 
 class DtFecha{
 private:
