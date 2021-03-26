@@ -5,13 +5,13 @@
         this->cantPasajeros = cantPasajeros;
         this->tamanio = tamanio;
     }
-    void DtBarcoPasajeros:: setCantPasajeros(int cantPasajeros){
+    void DtBarcoPasajeros:: setCantPasajeros(){
         this->cantPasajeros = cantPasajeros;
     }
     int DtBarcoPasajeros::getCantPasajeros(){
         return this->cantPasajeros;
     }
-    void DtBarcoPasajeros::setTamanio(TipoTamanio tamanio){
+    void DtBarcoPasajeros::setTamanio(){
         this->tamanio = tamanio;
     }
     TipoTamanio DtBarcoPasajeros:: getTamanio(){

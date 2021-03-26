@@ -13,10 +13,12 @@ public:
     void setCantPasajeros(int cantPasajeros);
     int getCantPasajeros();
     void setTamanio(TipoTamanio tamanio);
+    void setCantPasajeros();
+    int getCantPasajeros();
+    void setTamanio();
     TipoTamanio getTamanio();
     ~DtBarcoPasajeros();
 };
 
-
-
 #endif
+
