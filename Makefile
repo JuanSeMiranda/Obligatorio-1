@@ -1,5 +1,5 @@
 main: main.o DtFecha.o
-	g++ main.o -o sistema
+	g++ DtFecha.o main.o -o sistema
 
 main.o: main.cpp
 
