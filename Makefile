@@ -1,5 +1,7 @@
-main: main.o DtFecha.o DtBarco.o DtBarcoPesquero.o
-	g++ DtFecha.o main.o DtBarco.o DtBarcoPesquero.o -o sistema
+main: main.o DtFecha.o DtBarco.o DtBarcoPesquero.o DtBarcoPasajeros.o
+	g++ DtFecha.o main.o DtBarco.o DtBarcoPesquero.o DtBarcoPasajeros.o -o sistema
+
+DtBarcoPasajeros.o: DtBarcoPasajeros.cpp
 
 DtBarcoPesquero.o: DtBarcoPesquero.cpp
 
