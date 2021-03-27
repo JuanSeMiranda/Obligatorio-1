@@ -10,6 +10,9 @@ private:
 public:
     DtBarcoPasajeros();
     DtBarcoPasajeros(string nombre, string id, int cantPasajeros, TipoTamanio tamanio);
+    void setCantPasajeros(int cantPasajeros);
+    int getCantPasajeros();
+    void setTamanio(TipoTamanio tamanio);
     void setCantPasajeros();
     int getCantPasajeros();
     void setTamanio();
@@ -17,6 +20,5 @@ public:
     ~DtBarcoPasajeros();
 };
 
-
-
 #endif
+

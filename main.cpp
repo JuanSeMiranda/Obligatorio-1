@@ -1,5 +1,11 @@
 #include <iostream>
 #include <string.h>
+#include "TipoTamanio.h"
+#include "DtBarco.h"
+#include "DtBarcoPasajeros.h"
+#include "DtBarcoPesquero.h"
+#include "DtFecha.h"
+#include "DtPuerto.h"
 
 
 using namespace std;
