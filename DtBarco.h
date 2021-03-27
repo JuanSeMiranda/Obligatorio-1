@@ -18,7 +18,7 @@ public:
     string getNombre();
     void setId(string id);
     string getId();
-    ~DtBarco();
+    virtual ~DtBarco();
 };
 
 #endif
