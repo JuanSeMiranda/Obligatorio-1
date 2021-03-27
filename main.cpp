@@ -83,6 +83,30 @@ void menuAgregarPuerto(){
 
 }
 
+//SEGUNDA FUNCION
+
+void agregarBarco(DtBarco& barco){
+    try{
+        DtBarcoPasajeros& dtBarcoPas = dynamic_cast<DtBarcoPasajeros&>(barco);
+        BarcoPasajeros* barcoPas = new BarcoPasajeros(dtBarcoPas.getNombre(),
+                                                      dtBarcoPas.getId(),
+                                                      dtBarcoPas.getCantPasajeros(),
+                                                      dtBarcoPas.getTamanio());
+        colBarcos.b[colBarcos.tope] = barcoPas;
+        colBarcos.tope++;
+    } catch(bad_cast){
+        try{
+            DtBarcoPesquero& dtBarcoPes = dynamic_cast<DtBarcoPesquero&>(barco);
+            BarcoPesquero* barcoPes = new BarcoPesquero(dtBarcoPes.getNombre(),
+                                                        dtBarcoPes.getId(),
+                                                        dtBarcoPes.getCapacidad(),
+                                                        dtBarcoPes.getCarga());
+            colBarcos.b[colBarcos.tope] = barcoPes;
+            colBarcos.tope++;
+        } catch(bad_cast){}
+    }
+}
+
 using namespace std;
 
 void menu(){
