@@ -107,8 +107,6 @@ void agregarBarco(DtBarco& barco){
     }
 }
 
-using namespace std;
-
 void menu(){
 
     cout<<"Bienvenido. Elija una opcion." << endl<< endl;
