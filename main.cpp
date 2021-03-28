@@ -166,6 +166,8 @@ void menuListarPuertos(){
     listado = listarPuertos(colPuertos.tope);
     for(int i = 0; i < colPuertos.tope; i++){
         cout << "\n" << endl;
+        cout << "Puerto numero " << i+1 << endl;
+        cout << "----------------" << endl;
         cout << "Id del puerto: " << listado[i]->getId() << endl;
         cout << "Nombre del puerto: " << listado[i]->getNombre() << endl;
         cout << "Fecha de Creacion del puerto: ";
