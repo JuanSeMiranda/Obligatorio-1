@@ -11,6 +11,8 @@ private:
 	string id;
 	string nombre;
 	DtFecha fechaCreacion;
+	//pseudoatributos - A VERIFICAR
+	int cantArribos;
 public:
 	Puerto();
 	Puerto(string id, string nombre, DtFecha fechaCreacion);
@@ -21,6 +23,8 @@ public:
 	void setFechaCreacion(DtFecha fechaCreacion);
 	DtFecha getFechaCreacion();
 	~Puerto();
+	//
+	int getCantArribos();
 };
 
 #endif
