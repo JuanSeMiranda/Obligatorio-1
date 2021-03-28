@@ -33,3 +33,7 @@
 	}
 
 	Puerto::~Puerto(){}
+
+	int Puerto::getCantArribos(){
+    	    return this->cantArribos;
+    	}
