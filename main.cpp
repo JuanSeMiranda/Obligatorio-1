@@ -49,13 +49,16 @@ void menuAgregarPuerto(){
 
         cout << "Id: ";
         cin >> id;
-        cout << "Nombre: ";
-        cin >> nombre;
 
-        /*int i = 0;
+        int i = 0;
         while(i < colPuertos.tope && colPuertos.p[i]->getId() != id)
             i++;
-        */
+
+        if(i != colPuertos.tope)
+            throw invalid_argument("Ya hay un puerto con ese ID.\n");
+
+        cout << "Nombre: ";
+        cin >> nombre;
 
         cout << "\nFecha de Creacion:" << endl;
         cout << "Dia: ";
@@ -67,15 +70,6 @@ void menuAgregarPuerto(){
 
         DtFecha fecha (dia, mes, anio);
         agregarPuerto(id, nombre, fecha);
-
-        /*
-        if(i == colPuertos.tope){
-
-        }else{
-            throw invalid_argument("Ya hay un puerto con ese ID.\n");
-        }
-        */
-
 
     } else{
         cout << "No se admiten mas de 20 puertos." << endl;
@@ -106,6 +100,79 @@ void agregarBarco(DtBarco& barco){
         } catch(bad_cast){}
     }
 }
+
+void menuAgregarBarco(){
+    string id;
+    string nombre;
+    int opcion;
+
+    cout << "Ingrese ID:";
+    cin >> id;
+
+    cout << "Ingrese nombre:";
+    cin >> nombre;
+
+    cout << "Elija tipo de barco (1 para pasajero, 2 para carga)";
+/*
+    switch(opcion){
+        case 1: int cantPasajeros;
+                string tamanio;
+                cout << "Ingrese cantidad de pasajeros:";
+                cin >> cantPasajeros;
+
+                cout << "Ingrese tipo tamanio:";
+                cin >> tamanio;
+
+                TipoTamanio& tam = dynamic_cast<TipoTamanio&>(tamanio);
+
+                DtBarcoPasajeros barco(id, nombre, cantPasajeros, tamanio);
+                agregarBarco(barco);
+                break;
+
+        case 2: int capacidad;
+                int carga;
+                cout << "Ingrese capacidad:";
+                cin >> capacidad;
+
+                cout << "Ingrese carga:";
+                cin >> carga;
+
+                DtBarcoPesquero barco(id, nombre, capacidad, carga);
+                agregarBarco(barco);
+                break;
+    }
+*/
+}
+
+//TERCERA FUNCION
+
+DtPuerto** listarPuertos(int& cantPuertos){
+	cantPuertos = colPuertos.tope;
+	DtPuerto** listado = new DtPuerto*[cantPuertos];
+
+	for(int i = 0; i < colPuertos.tope; i++){
+        DtPuerto* dtp = new DtPuerto(colPuertos.p[i]->getId(), colPuertos.p[i]->getNombre(), colPuertos.p[i]->getFechaCreacion(), colPuertos.p[i]->getCantArribos());
+        listado[i] = dtp;
+    }
+	return listado;
+}
+
+void menuListarPuertos(){
+    DtPuerto** listado;
+    listado = listarPuertos(colPuertos.tope);
+    for(int i = 0; i < colPuertos.tope; i++){
+        cout << "\n" << endl;
+        cout << "Id del puerto: " << listado[i]->getId() << endl;
+        cout << "Nombre del puerto: " << listado[i]->getNombre() << endl;
+        //cout << "Fecha puerto: " << listado[i]->getFechaCreacion()->dia << "/" << listado[i]->getFechaCreacion()->mes << "/" << listado[i]->getFechaCreacion()->anio << endl;
+        cout << "Cantidad de arribos del puerto: " << listado[i]->getCantArribos() << endl;
+        cout << "\n" << endl;
+    }
+}
+
+/////////////////////////
+
+//Menu y main
 
 void menu(){
 
