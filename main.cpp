@@ -157,6 +157,10 @@ DtPuerto** listarPuertos(int& cantPuertos){
 	return listado;
 }
 
+void imprimirFecha(DtFecha fecha){
+    cout << fecha.getDia() << "/" << fecha.getMes() << "/" << fecha.getAnio() << endl;
+}
+
 void menuListarPuertos(){
     DtPuerto** listado;
     listado = listarPuertos(colPuertos.tope);
@@ -164,7 +168,8 @@ void menuListarPuertos(){
         cout << "\n" << endl;
         cout << "Id del puerto: " << listado[i]->getId() << endl;
         cout << "Nombre del puerto: " << listado[i]->getNombre() << endl;
-        //cout << "Fecha puerto: " << listado[i]->getFechaCreacion()->dia << "/" << listado[i]->getFechaCreacion()->mes << "/" << listado[i]->getFechaCreacion()->anio << endl;
+        cout << "Fecha de Creacion del puerto: ";
+        imprimirFecha(listado[i]->getFechaCreacion());
         cout << "Cantidad de arribos del puerto: " << listado[i]->getCantArribos() << endl;
         cout << "\n" << endl;
     }
