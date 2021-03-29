@@ -1,27 +1,27 @@
 main: main.o DtFecha.o DtBarco.o DtBarcoPesquero.o DtBarcoPasajeros.o DtPuerto.o DtArribo.o Barco.o BarcoPesquero.o BarcoPasajeros.o Puerto.o Arribo.o
 	g++ DtFecha.o main.o DtBarco.o DtBarcoPesquero.o DtBarcoPasajeros.o DtPuerto.o DtArribo.o Barco.o BarcoPesquero.o BarcoPasajeros.o Puerto.o Arribo.o -o sistema
 	
-Barco.o: Barco.cpp
+DtFecha.o: DtFecha.cpp
 
-Puerto.o: Puerto.cpp
+DtBarco.o: DtBarco.cpp
 
-Arribo.o: Arribo.cpp
+DtBarcoPesquero.o: DtBarcoPesquero.cpp
 
-BarcoPesquero.o: BarcoPesquero.cpp
+DtBarcoPasajeros.o: DtBarcoPasajeros.cpp
 
-BarcoPasajeros.o: BarcoPasajeros.cpp
-	
 DtPuerto.o: DtPuerto.cpp
 
 DtArribo.o: DtArribo.cpp
 
-DtBarcoPasajeros.o: DtBarcoPasajeros.cpp
+Barco.o: Barco.cpp
 
-DtBarcoPesquero.o: DtBarcoPesquero.cpp
+BarcoPesquero.o: BarcoPesquero.cpp
 
-DtBarco.o: DtBarco.cpp
+BarcoPasajeros.o: BarcoPasajeros.cpp
 
-DtFecha.o: DtFecha.cpp
+Puerto.o: Puerto.cpp
+
+Arribo.o: Arribo.cpp
 
 main.o: main.cpp
 
