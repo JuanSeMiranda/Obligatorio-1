@@ -1,7 +1,5 @@
-main: main.o DtFecha.o DtBarco.o DtBarcoPesquero.o DtBarcoPasajeros.o DtPuerto.o DtArribo.o Barco.o BarcoPesquero.o BarcoPasajeros.o Puerto.o Arribo.o
-	g++ DtFecha.o main.o DtBarco.o DtBarcoPesquero.o DtBarcoPasajeros.o DtPuerto.o DtArribo.o Barco.o BarcoPesquero.o BarcoPasajeros.o Puerto.o Arribo.o -o sistema
-	
-main.o: main.cpp
+main: DtFecha.o DtBarco.o DtBarcoPesquero.o DtBarcoPasajeros.o DtPuerto.o DtArribo.o Barco.o BarcoPesquero.o BarcoPasajeros.o Puerto.o Arribo.o main.o
+	g++ DtFecha.o DtBarco.o DtBarcoPesquero.o DtBarcoPasajeros.o DtPuerto.o DtArribo.o Barco.o BarcoPesquero.o BarcoPasajeros.o Puerto.o Arribo.o main.o -o sistema
 	
 DtFecha.o: DtFecha.cpp
 
@@ -24,6 +22,8 @@ BarcoPasajeros.o: BarcoPasajeros.cpp
 Puerto.o: Puerto.cpp
 
 Arribo.o: Arribo.cpp
+
+main.o: main.cpp
 
 clean:
 	rm -rf *.o sistema
