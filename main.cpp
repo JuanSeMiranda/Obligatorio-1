@@ -344,6 +344,29 @@ int main(){
 
     colPuertos.tope = 0;
     colBarcos.tope = 0;
+	
+    //FECHAS
+    DtFecha f1 = DtFecha(1,1,2021);
+    DtFecha f2 = DtFecha(1,2,2021);
+    DtFecha f3 = DtFecha(1,3,2021);
+    
+    //PUERTOS
+    agregarPuerto("1", "Puerto1", f1);
+    agregarPuerto("2", "Puerto2", f2);
+    agregarPuerto("3", "Puerto3", f2);
+    agregarPuerto("4", "Puerto4", f2);
+    
+    //BARCOS
+    DtBarcoPasajeros Bpas1 = DtBarcoPasajeros("Pas1","1",50,CRUCERO);
+    DtBarcoPasajeros Bpas2 = DtBarcoPasajeros("Pas2","2",50,CRUCERO);
+    DtBarcoPesquero Bpes1 = DtBarcoPesquero("Pes1","3",50,10);
+    DtBarcoPesquero Bpes2 = DtBarcoPesquero("Pes2","4",50,10);
+
+    //AGREGACION DE PUERTOS
+    agregarBarco(Bpas1);
+    agregarBarco(Bpas2);
+    agregarBarco(Bpes1);
+    agregarBarco(Bpes2);
 
     menu();
     int opcion;
