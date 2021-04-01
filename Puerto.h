@@ -6,6 +6,7 @@
 #include <string>
 #include "DtFecha.h"
 #include "Arribo.h"
+#include "DtArribo.h"
 
 using namespace std;
 
@@ -30,6 +31,7 @@ public:
 	~Puerto();
 	//
 	int getCantArribos();
+	DtArribo** getDtArribos();
 };
 
 #endif

@@ -1,5 +1,5 @@
-#ifndef DTARRIBO
-#define DTARRIBO
+#ifndef DTPUERTO
+#define DTPUERTO
 #include <string>
 #include <iostream>
 

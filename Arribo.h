@@ -4,6 +4,7 @@
 #include <string>
 #include "DtFecha.h"
 #include "Barco.h"
+#include "DtArribo.h"
 
 using namespace std;
 
@@ -18,9 +19,10 @@ public:
 	void setArribo(DtFecha arribo);
 	DtFecha getArribo();
 	void setCarga(float carga);
-	float setCarga();
+	float getCarga();
 	void setBarco(Barco* Barco);
 	Barco* getBarco();
+	DtBarco* getDtBarco();
 	~Arribo();
 };
 

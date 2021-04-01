@@ -2,6 +2,7 @@
 #define BARCOPASAJEROS
 #include "Barco.h"
 #include "TipoTamanio.h"
+#include "DtBarcoPasajeros.h"
 
 class BarcoPasajeros: public Barco{
 private:
@@ -17,6 +18,7 @@ public:
     ~BarcoPasajeros();
 
     void arribar(float cargaDespacho);
+    DtBarco* getDtBarco();
 };
 
 #endif

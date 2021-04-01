@@ -26,5 +26,14 @@
     BarcoPasajeros::~BarcoPasajeros(){}
 
     void BarcoPasajeros::arribar(float cargaDespacho){
-        cout << "Los barcos de pasajeros no tienen carga" << endl;
+        if(cargaDespacho < 0 || cargaDespacho > 0)
+            throw invalid_argument("Los barcos de pasajeros no tienen carga.\n");
+    }
+
+    DtBarco* BarcoPasajeros::getDtBarco(){
+        DtBarcoPasajeros* dtbPasajeros = new DtBarcoPasajeros(this->getNombre(),
+                                                              this->getId(),
+                                                              this->cantPasajeros,
+                                                              this->tamanio);
+        return dtbPasajeros;
     }

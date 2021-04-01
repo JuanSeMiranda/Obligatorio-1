@@ -2,6 +2,7 @@
 #define BARCO
 #include <iostream>
 #include <string>
+#include "DtBarco.h"
 
 using namespace std;
 
@@ -19,6 +20,7 @@ public:
     ~Barco();
 
     virtual void arribar(float cargaDespacho)=0;
+    virtual DtBarco* getDtBarco()=0;
 };
 
 #endif // BARCO

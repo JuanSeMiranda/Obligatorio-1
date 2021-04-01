@@ -1,6 +1,7 @@
 #ifndef BARCOPESQUERO
 #define BARCOPESQUERO
 #include "Barco.h"
+#include "DtBarcoPesquero.h"
 
 class BarcoPesquero: public Barco{
 private:
@@ -16,6 +17,7 @@ public:
     ~BarcoPesquero();
 
     void arribar(float cargaDespacho);
+    DtBarco* getDtBarco();
 };
 
 #endif

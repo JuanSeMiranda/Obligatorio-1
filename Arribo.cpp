@@ -19,7 +19,7 @@
 	    this->carga = carga;
 	}
 
-	float Arribo::setCarga(){
+	float Arribo::getCarga(){
 	    return this->carga;
 	}
 
@@ -27,8 +27,12 @@
 		this->barco = barco;
 	}
 
-	Barco* Arribo:: getBarco(){
+	Barco* Arribo::getBarco(){
 		return this->barco;
+	}
+
+	DtBarco* Arribo::getDtBarco(){
+ 		return this->barco->getDtBarco();
 	}
 
 	Arribo::~Arribo(){}

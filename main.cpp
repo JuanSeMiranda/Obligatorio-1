@@ -5,6 +5,7 @@
 #include "DtBarcoPasajeros.h"
 #include "DtBarcoPesquero.h"
 #include "DtFecha.h"
+#include "DtArribo.h"
 #include "DtPuerto.h"
 #include "Barco.h"
 #include "BarcoPasajeros.h"
@@ -197,21 +198,23 @@ void menuListarPuertos(){
 
 void agregarArribo(string idPuerto, string idBarco, DtFecha fecha, int cargaDespacho){
 	int i = 0;
-	while(colPuertos.p[i]->getId() != idPuerto && i != colPuertos.tope)
+	while(i < colPuertos.tope && colPuertos.p[i]->getId() != idPuerto)
 		i++;
 
-    if(i == colPuertos.tope && colPuertos.p[i]->getId() != idPuerto)
+    if(i == colPuertos.tope)
         throw invalid_argument("No existe el puerto con ese Id.\n");
 
 	int j = 0;
-	while(colBarcos.b[j]->getId() != idBarco && j != colBarcos.tope)
+	while(j < colBarcos.tope && colBarcos.b[j]->getId() != idBarco)
 		j++;
 
-    if(j == colBarcos.tope && colBarcos.b[j]->getId() != idBarco)
+    if(j == colBarcos.tope)
         throw invalid_argument("No existe el barco con ese Id.\n");
 
 	Arribo* arribo = new Arribo(fecha, cargaDespacho);
+    arribo->setBarco(colBarcos.b[j]);
 
+    colBarcos.b[j]->arribar(cargaDespacho);
 	colPuertos.p[i]->agregarArribo(arribo);
 }
 
@@ -244,6 +247,23 @@ void menuAgregarArribo(){
 
     agregarArribo(idPuerto, idBarco, fecha, cargaDespacho);
 
+}
+
+//QUINTA FUNCION
+
+DtArribo** obtenerInfoArribosEnPuerto(string idPuerto, int& cantArribos){
+    int i = 0;
+	while(i < colPuertos.tope && colPuertos.p[i]->getId() != idPuerto)
+		i++;
+
+    if(i == colPuertos.tope)
+        throw invalid_argument("No existe el puerto con ese Id.\n");
+
+
+    cantArribos=colPuertos.p[i]->getCantArribos();
+    DtArribo** arribos = colPuertos.p[i]->getDtArribos();
+    
+    return arribos;
 }
 
 //SEPTIMA FUNCION
@@ -325,7 +345,9 @@ int main(){
     colPuertos.tope = 0;
     colBarcos.tope = 0;
 
+    menu();
     int opcion;
+    cin >> opcion;
     while(opcion != 8){
         switch(opcion){
             case 1: try{
@@ -338,7 +360,7 @@ int main(){
                     break;
             case 2: try{
                         menuAgregarBarco();
-                    } catch(invalid_argument& fecha){
+                    }catch(invalid_argument& fecha){
                         cout << fecha.what() << endl;
                     }
                     break;
@@ -346,10 +368,13 @@ int main(){
                     break;
             case 4: try{
                         menuAgregarArribo();
-                    } catch(invalid_argument& fecha){
+                    }catch(invalid_argument& fecha){
                         cout << fecha.what() << endl;
-                    } catch (invalid_argument& BarcoPesquero){
-                        cout << BarcoPesquero.what() << endl;
+                        try{
+                            
+                        }catch(invalid_argument& BarcoPesquero){
+                            cout << BarcoPesquero.what() << endl;
+                        }
                     }
                     break;
             case 7: menuListarBarcos();
@@ -361,4 +386,5 @@ int main(){
         cin>>opcion;
     }
 
+    return 0;
 }
