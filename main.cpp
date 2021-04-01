@@ -83,8 +83,8 @@ void menuAgregarPuerto(){
 void agregarBarco(DtBarco& barco){
     try{
         DtBarcoPasajeros& dtBarcoPas = dynamic_cast<DtBarcoPasajeros&>(barco);
-        BarcoPasajeros* barcoPas = new BarcoPasajeros(dtBarcoPas.getId(),
-                                                      dtBarcoPas.getNombre(),
+        BarcoPasajeros* barcoPas = new BarcoPasajeros(dtBarcoPas.getNombre(),
+                                                      dtBarcoPas.getId(),
                                                       dtBarcoPas.getCantPasajeros(),
                                                       dtBarcoPas.getTamanio());
         colBarcos.b[colBarcos.tope] = barcoPas;
@@ -92,8 +92,8 @@ void agregarBarco(DtBarco& barco){
     } catch(bad_cast){
         try{
             DtBarcoPesquero& dtBarcoPes = dynamic_cast<DtBarcoPesquero&>(barco);
-            BarcoPesquero* barcoPes = new BarcoPesquero(dtBarcoPes.getId(),
-                                                        dtBarcoPes.getNombre(),
+            BarcoPesquero* barcoPes = new BarcoPesquero(dtBarcoPes.getNombre(),
+                                                        dtBarcoPes.getId(),
                                                         dtBarcoPes.getCapacidad(),
                                                         dtBarcoPes.getCarga());
             colBarcos.b[colBarcos.tope] = barcoPes;
