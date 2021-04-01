@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "DtFecha.h"
+#include "Barco.h"
 
 using namespace std;
 
@@ -10,6 +11,7 @@ class Arribo{
 private:
     DtFecha arribo;
     float carga;
+	Barco* barco;
 public:
 	Arribo();
 	Arribo(DtFecha arribo, float carga);
@@ -17,6 +19,8 @@ public:
 	DtFecha getArribo();
 	void setCarga(float carga);
 	float setCarga();
+	void setBarco(Barco* Barco);
+	Barco* getBarco();
 	~Arribo();
 };
 

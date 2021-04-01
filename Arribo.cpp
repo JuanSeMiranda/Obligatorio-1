@@ -23,4 +23,12 @@
 	    return this->carga;
 	}
 
+	void Arribo::setBarco(Barco* Barco){
+		this->barco = barco;
+	}
+
+	Barco* Arribo:: getBarco(){
+		return this->barco;
+	}
+
 	Arribo::~Arribo(){}

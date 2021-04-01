@@ -34,6 +34,11 @@
 
 	Puerto::~Puerto(){}
 
+	void Puerto::agregarArribo(Arribo* arribo){
+		this->arribos[this->cantArribos]= arribo;
+		this->cantArribos ++;
+	}
+
 	int Puerto::getCantArribos(){
     	    return this->cantArribos;
     	}
