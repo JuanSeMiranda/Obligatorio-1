@@ -36,3 +36,8 @@
     }
 
     DtFecha::~DtFecha(){}
+
+    ostream& operator << (ostream& salida, DtFecha& fecha){
+        cout << fecha.dia << "-" << fecha.mes << "-" << fecha.anio << endl;
+        return salida;
+    }

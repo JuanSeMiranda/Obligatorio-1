@@ -211,8 +211,7 @@ void agregarArribo(string idPuerto, string idBarco, DtFecha fecha, int cargaDesp
     if(j == colBarcos.tope)
         throw invalid_argument("No existe el barco con ese Id.\n");
 
-	Arribo* arribo = new Arribo(fecha, cargaDespacho);
-    arribo->setBarco(colBarcos.b[j]);
+	Arribo* arribo = new Arribo(fecha, cargaDespacho, colBarcos.b[j]);
 
     colBarcos.b[j]->arribar(cargaDespacho);
 	colPuertos.p[i]->agregarArribo(arribo);
@@ -256,15 +255,35 @@ DtArribo** obtenerInfoArribosEnPuerto(string idPuerto, int& cantArribos){
 	while(i < colPuertos.tope && colPuertos.p[i]->getId() != idPuerto)
 		i++;
 
-    if(i == colPuertos.tope)
-        throw invalid_argument("No existe el puerto con ese Id.\n");
-
-
-    cantArribos=colPuertos.p[i]->getCantArribos();
+    cantArribos = colPuertos.p[i]->getCantArribos();
     DtArribo** arribos = colPuertos.p[i]->getDtArribos();
     
     return arribos;
 }
+
+void menuObtenerInfoArribosEnPuerto(){
+    string idPuerto;
+
+    cout << "Id de puerto: ";
+    cin >> idPuerto;
+
+    int i = 0;
+	while(i < colPuertos.tope && colPuertos.p[i]->getId() != idPuerto)
+		i++;
+
+    if(i == colPuertos.tope)
+        throw invalid_argument("No existe el puerto con ese Id.\n");
+
+    int cantArribos = colPuertos.p[i]->getCantArribos();
+    DtArribo** arribos = obtenerInfoArribosEnPuerto(idPuerto, cantArribos);
+    
+    cout << "Cantidad de arribos: " << cantArribos << endl;
+
+    for(int j = 0; j < colPuertos.p[i]->getCantArribos(); j++){
+        cout << "\n\n" << *(arribos[j]);
+    }
+}
+
 
 //SEPTIMA FUNCION
 
@@ -344,29 +363,33 @@ int main(){
 
     colPuertos.tope = 0;
     colBarcos.tope = 0;
-	
-    //FECHAS
+    /////FECHAS
     DtFecha f1 = DtFecha(1,1,2021);
     DtFecha f2 = DtFecha(1,2,2021);
     DtFecha f3 = DtFecha(1,3,2021);
-    
-    //PUERTOS
+    /////PUERTOS
     agregarPuerto("1", "Puerto1", f1);
     agregarPuerto("2", "Puerto2", f2);
     agregarPuerto("3", "Puerto3", f2);
     agregarPuerto("4", "Puerto4", f2);
-    
-    //BARCOS
+    /////BARCOS
+
     DtBarcoPasajeros Bpas1 = DtBarcoPasajeros("Pas1","1",50,CRUCERO);
     DtBarcoPasajeros Bpas2 = DtBarcoPasajeros("Pas2","2",50,CRUCERO);
     DtBarcoPesquero Bpes1 = DtBarcoPesquero("Pes1","3",50,10);
     DtBarcoPesquero Bpes2 = DtBarcoPesquero("Pes2","4",50,10);
 
-    //AGREGACION DE PUERTOS
     agregarBarco(Bpas1);
     agregarBarco(Bpas2);
     agregarBarco(Bpes1);
     agregarBarco(Bpes2);
+
+    ///// ARRIBOS
+
+    agregarArribo("1", "1", f1, 0);
+    agregarArribo("1", "2", f2, 0);
+    agregarArribo("2", "3", f3, 0);
+    agregarArribo("2", "4", f2, 0);
 
     menu();
     int opcion;
@@ -398,6 +421,13 @@ int main(){
                         }catch(invalid_argument& BarcoPesquero){
                             cout << BarcoPesquero.what() << endl;
                         }
+                    }
+                    break;
+            case 5: try{
+                        menuObtenerInfoArribosEnPuerto();
+                    }catch(invalid_argument& idPuerto){
+                        cout << idPuerto.what() << endl;
+                        cout << "Ya maneje la exepcion" << endl;
                     }
                     break;
             case 7: menuListarBarcos();

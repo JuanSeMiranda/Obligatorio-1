@@ -2,9 +2,10 @@
 
 	Arribo::Arribo(){}
 
-	Arribo::Arribo(DtFecha arribo, float carga){
+	Arribo::Arribo(DtFecha arribo, float carga, Barco* barco){
 	    this->arribo = arribo;
 	    this->carga = carga;
+		this->barco = barco;
 	}
 
 	void Arribo::setArribo(DtFecha arribo){
@@ -36,3 +37,12 @@
 	}
 
 	Arribo::~Arribo(){}
+/*
+	ostream& operator << (ostream& salida, DtArribo& dtArribo){
+		cout << "Fecha: " << dtArribo.getFecha() << endl;
+		cout << "Carga: " << dtArribo.getCarga() << endl;
+		//cout << "Barco: " << dtArribo.barco << endl;
+
+		return salida;
+	}
+	*/

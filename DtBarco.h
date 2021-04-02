@@ -19,6 +19,8 @@ public:
     void setId(string id);
     string getId();
     virtual ~DtBarco();
+
+    friend ostream& operator << (ostream&, const DtBarco*&);
 };
 
 #endif

@@ -20,3 +20,9 @@
         return this->id;
     }
     DtBarco::~DtBarco(){}
+
+    ostream& operator << (ostream& salida, const DtBarco*& barco){
+        cout << "Nombre del Barco: " << barco->nombre << endl;
+        cout << "Id del Barco: " << barco->id << endl;
+        return salida;
+    }

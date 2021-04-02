@@ -24,12 +24,20 @@
         return this->carga;
     }
 
-    void DtArribo::setBarco(DtBarco* barco){
+    void DtArribo::setDtBarco(DtBarco* barco){
         this->barco = barco;
     }
 
-    DtBarco* DtArribo::getBarco(){
+    DtBarco* DtArribo::getDtBarco(){
         return this->barco;
     }
 
     DtArribo::~DtArribo(){}
+
+	ostream& operator << (ostream& salida, DtArribo& dtArribo){
+		cout << "Fecha: " << dtArribo.fecha << endl;
+		cout << "Carga: " << dtArribo.carga << endl;
+		cout << "Barco: " << dtArribo.barco << endl;
+
+		return salida;
+	}

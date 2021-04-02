@@ -18,3 +18,9 @@
         return this->tamanio;
     }
     DtBarcoPasajeros::~DtBarcoPasajeros(){}
+
+    ostream& operator << (ostream& salida, DtBarcoPasajeros*& pasajero){
+        string tipo[4]={"BOTE","CRUCERO","GALEON","TRASATLANTICO"};
+        cout << (DtBarco*) pasajero << " Cantidad de pasajeros: " << pasajero->cantPasajeros << "Tipo de Barco: " << tipo[pasajero->tamanio] << endl;
+        return salida;
+    }

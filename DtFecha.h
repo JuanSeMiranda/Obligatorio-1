@@ -20,6 +20,8 @@ public:
     void setAnio(int anio);
     int getAnio();
     ~DtFecha();
+
+    friend ostream& operator << (ostream&, DtFecha&);
 };
 
 #endif

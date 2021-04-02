@@ -15,7 +15,7 @@ private:
 	Barco* barco;
 public:
 	Arribo();
-	Arribo(DtFecha arribo, float carga);
+	Arribo(DtFecha arribo, float carga, Barco* barco);
 	void setArribo(DtFecha arribo);
 	DtFecha getArribo();
 	void setCarga(float carga);
@@ -24,6 +24,8 @@ public:
 	Barco* getBarco();
 	DtBarco* getDtBarco();
 	~Arribo();
+
+	//friend ostream& operator << (ostream&, DtArribo&);
 };
 
 #endif // BARCO

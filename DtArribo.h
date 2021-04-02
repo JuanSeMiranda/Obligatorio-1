@@ -16,9 +16,11 @@ public:
     DtFecha getFecha();
     void setCarga(float carga);
     float getCarga();
-    void setBarco(DtBarco* barco);
-    DtBarco* getBarco();
+    void setDtBarco(DtBarco* barco);
+    DtBarco* getDtBarco();
     ~DtArribo();
+
+    friend ostream& operator << (ostream&, DtArribo&);
 };
 
 #endif // DTARRIBO
