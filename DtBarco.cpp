@@ -1,5 +1,6 @@
-//#include <string>
 #include "DtBarco.h"
+#include "DtBarcoPasajeros.h"
+#include "DtBarcoPesquero.h"
 
 
     DtBarco::DtBarco(){}
@@ -21,8 +22,8 @@
     }
     DtBarco::~DtBarco(){}
 
-    ostream& operator << (ostream& salida, const DtBarco*& barco){
-        cout << "Nombre del Barco: " << barco->nombre << endl;
-        cout << "Id del Barco: " << barco->id << endl;
+    ostream& operator <<(ostream& salida, const DtBarco& barco){
+        cout << "Id del Barco: " << barco.id << endl;
+        cout << "Nombre del Barco: " << barco.nombre << endl;
         return salida;
     }

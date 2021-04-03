@@ -1,10 +1,8 @@
 #ifndef DTBARCO
 #define DTBARCO
 #include<iostream>
-//#include <string.h>
 
 using namespace std;   
-//std::string;
 
 
 class DtBarco{
@@ -20,7 +18,7 @@ public:
     string getId();
     virtual ~DtBarco();
 
-    friend ostream& operator << (ostream&, const DtBarco*&);
+    friend ostream& operator <<(ostream&, const DtBarco&);
 };
 
 #endif

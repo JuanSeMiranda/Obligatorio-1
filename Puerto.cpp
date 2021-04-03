@@ -46,7 +46,7 @@
 	DtArribo** Puerto::getDtArribos(){
 		DtArribo** dtArribos= new DtArribo*[this->cantArribos];
   		for(int i = 0; i < this->cantArribos; i++){
-    		DtArribo* dtArribo = new DtArribo(this->arribos[i]->getArribo(),
+    		DtArribo* dtArribo = new DtArribo(this->arribos[i]->getFecha(),
             		                          this->arribos[i]->getCarga(),
                     		                  this->arribos[i]->getDtBarco());
     		dtArribos[i] = dtArribo;

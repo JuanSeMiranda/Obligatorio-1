@@ -20,7 +20,7 @@ public:
     DtBarco* getDtBarco();
     ~DtArribo();
 
-    friend ostream& operator << (ostream&, DtArribo&);
+    friend ostream& operator <<(ostream&, DtArribo&);
 };
 
 #endif // DTARRIBO

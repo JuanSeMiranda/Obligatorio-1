@@ -34,10 +34,9 @@
 
     DtArribo::~DtArribo(){}
 
-	ostream& operator << (ostream& salida, DtArribo& dtArribo){
-		cout << "Fecha: " << dtArribo.fecha << endl;
-		cout << "Carga: " << dtArribo.carga << endl;
-		cout << "Barco: " << dtArribo.barco << endl;
-
+	ostream& operator <<(ostream& salida, DtArribo& dtArribo){
+		salida << "Fecha: " << dtArribo.fecha << endl;
+        cout << "Carga: " << dtArribo.carga << endl;
+        cout << *(dtArribo.barco) << endl;
 		return salida;
 	}

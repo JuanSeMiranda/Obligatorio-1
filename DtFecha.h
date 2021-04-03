@@ -21,7 +21,7 @@ public:
     int getAnio();
     ~DtFecha();
 
-    friend ostream& operator << (ostream&, DtFecha&);
+    friend ostream& operator <<(ostream&, DtFecha&);
 };
 
 #endif

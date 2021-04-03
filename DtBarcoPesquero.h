@@ -16,7 +16,7 @@ public:
     int getCarga();
     ~DtBarcoPesquero();
 
-    friend ostream& operator << (ostream&, DtBarcoPesquero*&);
+    friend ostream& operator <<(ostream&, DtBarcoPesquero&);
 };
 
 #endif

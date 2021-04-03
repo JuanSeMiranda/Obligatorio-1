@@ -16,7 +16,7 @@ public:
     TipoTamanio getTamanio();
     ~DtBarcoPasajeros();
 
-    friend ostream& operator << (ostream&, DtBarcoPasajeros*&);
+    friend ostream& operator <<(ostream&, DtBarcoPasajeros&);
 };
 
 #endif

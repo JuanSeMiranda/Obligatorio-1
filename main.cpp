@@ -277,10 +277,18 @@ void menuObtenerInfoArribosEnPuerto(){
     int cantArribos = colPuertos.p[i]->getCantArribos();
     DtArribo** arribos = obtenerInfoArribosEnPuerto(idPuerto, cantArribos);
     
-    cout << "Cantidad de arribos: " << cantArribos << endl;
+    cout << "Cantidad de arribos: " << cantArribos << "\n" << endl;
 
     for(int j = 0; j < colPuertos.p[i]->getCantArribos(); j++){
-        cout << "\n\n" << *(arribos[j]);
+        cout << "Arribo " << j+1 << endl;
+        cout << "------" << endl;
+        //cout << *arribos[j] << endl; no va, los hijos acceden directamente al id y nombre del padre
+
+        if(DtBarcoPasajeros* pas = dynamic_cast<DtBarcoPasajeros*>(arribos[j]->getDtBarco())){
+            cout << *pas << endl;
+        }else if(DtBarcoPesquero* pes= dynamic_cast<DtBarcoPesquero*>(arribos[j]->getDtBarco())){
+            cout << *pes << endl;
+        }
     }
 }
 

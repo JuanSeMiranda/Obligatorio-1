@@ -19,9 +19,8 @@
     }
     DtBarcoPesquero::~DtBarcoPesquero(){}
 
-    ostream& operator <<(ostream& salida, DtBarcoPesquero*& pesquero){
-        cout << (DtBarco*) pesquero << endl;
-        cout << "Capacidad del barco: " << pesquero->capacidad << endl;
-        cout << "Carga del barco: " << pesquero->carga << endl;
+    ostream& operator <<(ostream& salida, DtBarcoPesquero& pesquero){
+        cout << (DtBarco) pesquero << "Capacidad del barco: " << pesquero.capacidad << endl;
+        cout << "Carga del barco: " << pesquero.carga << endl;
         return salida;
     }
