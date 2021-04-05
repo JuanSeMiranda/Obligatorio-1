@@ -54,3 +54,14 @@
 
   		return dtArribos;
 	}
+
+	void Puerto::eliminarArribos(DtFecha fecha){
+  		for(int i = 0; i < this->cantArribos; i++){
+    		while(i < this->cantArribos && this->arribos[i]->getFecha() == fecha){
+      			this->arribos[i] = this->arribos[this->cantArribos-1];
+      			this->arribos[this->cantArribos-1]=NULL;
+      			delete this->arribos[this->cantArribos-1];
+      			this->cantArribos--;
+    		}
+  		}
+	}

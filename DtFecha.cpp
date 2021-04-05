@@ -41,3 +41,7 @@
         cout << fecha.dia << "-" << fecha.mes << "-" << fecha.anio << endl;
         return salida;
     }
+
+    bool operator ==(const DtFecha& fecha1, const DtFecha& fecha2){
+        return fecha1.dia == fecha2.dia && fecha1.mes == fecha2.mes && fecha1.anio == fecha2.anio; 
+    }

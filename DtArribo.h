@@ -3,6 +3,8 @@
 #include <string>
 #include "DtFecha.h"
 #include "DtBarco.h"
+#include "DtBarcoPesquero.h"
+#include "DtBarcoPasajeros.h"
 
 class DtArribo{
 private:

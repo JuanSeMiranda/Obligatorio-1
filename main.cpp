@@ -282,16 +282,41 @@ void menuObtenerInfoArribosEnPuerto(){
     for(int j = 0; j < colPuertos.p[i]->getCantArribos(); j++){
         cout << "Arribo " << j+1 << endl;
         cout << "------" << endl;
-        //cout << *arribos[j] << endl; no va, los hijos acceden directamente al id y nombre del padre
-
-        if(DtBarcoPasajeros* pas = dynamic_cast<DtBarcoPasajeros*>(arribos[j]->getDtBarco())){
-            cout << *pas << endl;
-        }else if(DtBarcoPesquero* pes= dynamic_cast<DtBarcoPesquero*>(arribos[j]->getDtBarco())){
-            cout << *pes << endl;
-        }
+        cout << *arribos[j] << endl;
     }
 }
 
+//SEXTA FUNCION
+
+void eliminarArribos(string idPuerto, DtFecha fecha){
+    int i = 0;
+	while(i < colPuertos.tope && colPuertos.p[i]->getId() != idPuerto)
+		i++;
+
+    if(i == colPuertos.tope)
+        throw invalid_argument("No existe el puerto con ese Id.\n");
+
+    colPuertos.p[i]->eliminarArribos(fecha);
+}
+
+void menuEliminarArribos(){
+    //system("clear");
+    cout << "__"<< endl;
+    cout << "ARRIBOS A ELIMINAR___" << endl;
+    string idPuerto;
+    int dia, mes, anio;
+    cout << "ID PUERTO: ";
+    cin >> idPuerto;
+    cout << "FECHA";
+    cout << "\nDIA: ";
+    cin >> dia;
+    cout << "MES: ";
+    cin >> mes;
+    cout << "ANIO: ";
+    cin >> anio;
+    DtFecha fecha = DtFecha(dia, mes, anio);
+    eliminarArribos(idPuerto, fecha);
+}
 
 //SEPTIMA FUNCION
 
@@ -300,29 +325,16 @@ DtBarco** listarBarcos(int& cantBarcos){
   DtBarco** listado = new DtBarco*[cantBarcos];
   for(int i=0 ; i < colBarcos.tope ; i++){
     if(BarcoPasajeros* pas = dynamic_cast<BarcoPasajeros*>(colBarcos.b[i])){
-        DtBarcoPasajeros* dtbpa = new DtBarcoPasajeros(pas->getId(), pas->getNombre(), pas->getCantPasajeros(), pas->getTamanio());
+        DtBarcoPasajeros* dtbpa = new DtBarcoPasajeros(pas->getNombre(), pas->getId(), pas->getCantPasajeros(), pas->getTamanio());
         listado[i]=dtbpa;
 
     } else if(BarcoPesquero* pes= dynamic_cast<BarcoPesquero*>(colBarcos.b[i])){
-        DtBarcoPesquero* dtbpe = new DtBarcoPesquero(pes->getId(), pes->getNombre(), pes->getCapacidad(), pes->getCarga());
+        DtBarcoPesquero* dtbpe = new DtBarcoPesquero(pes->getNombre(), pes->getId(), pes->getCapacidad(), pes->getCarga());
 
         listado[i]=dtbpe;
     }
   }
   return listado;
-}
-
-void imprimirTamanio(TipoTamanio num){
-    switch(num){
-        case BOTE: cout << "BOTE" << endl;
-                break;
-        case CRUCERO: cout << "CRUCERO" << endl;
-                break;
-        case GALEON: cout << "GALEON" << endl;
-                break;
-        case TRANSATLANTICO: cout << "TRANSATLANTICO" << endl;
-                break;
-    }
 }
 
 void menuListarBarcos(){
@@ -332,19 +344,16 @@ void menuListarBarcos(){
         cout << "\n" << endl;
         cout << "Barco numero " << i+1 << endl;
         cout << "----------------" << endl;
-        if(BarcoPasajeros* pas = dynamic_cast<BarcoPasajeros*>(colBarcos.b[i])){
-            cout << "Id del barco: " << pas->getId() << endl;
-            cout << "Nombre del barco: " << pas->getNombre() << endl;
-            cout << "Cantidad de pasajeros del barco: " << pas->getCantPasajeros() << endl;
-            cout << "Tipo de barco: ";
-            imprimirTamanio(pas->getTamanio());
-        }else if(BarcoPesquero* pes= dynamic_cast<BarcoPesquero*>(colBarcos.b[i])){
-            cout << "Id del barco: " << pes->getId() << endl;
-            cout << "Nombre del barco: " << pes->getNombre() << endl;
-            cout << "Capacidad del barco: " << pes->getCapacidad() << endl;
-            cout << "Carga del barco: " << pes->getCarga() << endl;
+        DtBarcoPasajeros* pasajeros = dynamic_cast<DtBarcoPasajeros*>(listado[i]);
+        if(pasajeros != NULL)
+            cout << *pasajeros << endl;
+        else{
+            DtBarcoPesquero* pesquero = dynamic_cast<DtBarcoPesquero*>(listado[i]);
+            if(pesquero != NULL)
+                cout << *pesquero << endl;
         }
     }
+    cout << endl;
 }
 
 /////////////////////////
@@ -407,35 +416,37 @@ int main(){
             case 1: try{
                         menuAgregarPuerto();
                         cout << "Puerto creado con exito" << endl;
-                    }catch(invalid_argument& fecha){
-                        cout << fecha.what() << endl;
-                        cout << "Ya maneje la excepcion" << endl;
+                    }catch(invalid_argument& e){
+                        cout << e.what() << endl;
                     }
                     break;
             case 2: try{
                         menuAgregarBarco();
-                    }catch(invalid_argument& fecha){
-                        cout << fecha.what() << endl;
+                        cout << "Barco creado con exito" << endl;
+                    }catch(invalid_argument& e){
+                        cout << e.what() << endl;
                     }
                     break;
             case 3: menuListarPuertos();
                     break;
             case 4: try{
                         menuAgregarArribo();
-                    }catch(invalid_argument& fecha){
-                        cout << fecha.what() << endl;
-                        try{
-                            
-                        }catch(invalid_argument& BarcoPesquero){
-                            cout << BarcoPesquero.what() << endl;
-                        }
+                        cout << "Arribo creado con exito" << endl;
+                    }catch(invalid_argument& e){
+                        cout << e.what() << endl;
                     }
                     break;
             case 5: try{
                         menuObtenerInfoArribosEnPuerto();
-                    }catch(invalid_argument& idPuerto){
-                        cout << idPuerto.what() << endl;
-                        cout << "Ya maneje la exepcion" << endl;
+                    }catch(invalid_argument& e){
+                        cout << e.what() << endl;
+                    }
+                    break;
+            case 6: try{
+                        menuEliminarArribos();
+                        cout << "Arribo eliminado con exito" << endl;
+                    }catch(invalid_argument& e){
+                        cout << e.what() << endl;
                     }
                     break;
             case 7: menuListarBarcos();

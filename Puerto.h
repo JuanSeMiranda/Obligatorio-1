@@ -32,6 +32,7 @@ public:
 	//
 	int getCantArribos();
 	DtArribo** getDtArribos();
+	void eliminarArribos(DtFecha fecha);
 };
 
 #endif

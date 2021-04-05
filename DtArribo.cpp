@@ -35,8 +35,17 @@
     DtArribo::~DtArribo(){}
 
 	ostream& operator <<(ostream& salida, DtArribo& dtArribo){
+        DtBarcoPesquero* pes;
+        DtBarcoPasajeros* pas;
 		salida << "Fecha: " << dtArribo.fecha << endl;
         cout << "Carga: " << dtArribo.carga << endl;
-        cout << *(dtArribo.barco) << endl;
+        pes = dynamic_cast<DtBarcoPesquero*>(dtArribo.getDtBarco());
+        pas = dynamic_cast<DtBarcoPasajeros*>(dtArribo.getDtBarco());
+
+        if(pas != NULL)
+            cout << *pas << endl;
+        else
+            cout << *pes << endl;
+
 		return salida;
 	}

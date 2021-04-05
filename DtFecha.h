@@ -22,6 +22,7 @@ public:
     ~DtFecha();
 
     friend ostream& operator <<(ostream&, DtFecha&);
+    friend bool operator ==(const DtFecha&, const DtFecha&);
 };
 
 #endif
