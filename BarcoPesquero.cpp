@@ -3,12 +3,8 @@
     BarcoPesquero::BarcoPesquero(){}
 
     BarcoPesquero::BarcoPesquero(string nombre, string id, int capacidad, int carga): Barco(nombre, id){
-        if(carga > capacidad)
-            throw invalid_argument("La carga es mayor a la capacidad del barco.\n");
-        else{
-            this->capacidad = capacidad;
-            this->carga = carga;
-        }
+        this->capacidad = capacidad;
+        this->carga = carga;
     }
 
     void BarcoPesquero::setCapacidad(int capacidad){
