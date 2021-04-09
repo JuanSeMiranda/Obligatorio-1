@@ -1,0 +1,17 @@
+Respuesta 1:
+Hubo que implementar en todas las clases las firmas(ejemplo: class A;) de
+sus clases adyacentes(ejemplo: las clases adyacentes de A son B y C). Ademas
+de que en cada clase se incluyo un unico cabezal refiriendose a una de las clases
+adyacentes, a su vez la siguiente clase incluye a la clase siguiente(ejemplo:
+A incluye a B, B incluye a C y C incluye a A). Por lo tanto como se cumple un ciclo
+A al incluir B tambien incluye a C.
+
+
+Respuesta 2:
+Forward declaration es una declaracion de un identificador el cual puede ser
+un tipo, una variable, una funcion, una clase, etc; para la cual aun no
+se a implementado una definición o un metodo.
+Al hacer una forward declaration se le da al compilador los datos basicos 
+para poder compilar por ejemplo una funcion declarada a la que aun no se puede acceder,
+pero de la que si se conoce la memoria que ocupa y su tipo de dato, aunque no
+se le da a conocer el valor de variables ni el metodo.
